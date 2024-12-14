@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+</head>
+<body>
+    <div id="custom_book_tab">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="text-center">NO</th>
+                    <th class="text-center">Book Cover</th>
+                    <th class="text-center">Book Name</th>
+                    <th class="text-center">Type of Book</th>
+                    <th class="text-center">Publisher</th>
+                    <th class="text-center">Author</th>
+                    <th class="text-center">ISBN</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td class="text-center">{{ loop.index }}</td>
+                        <td class="text-center">
+                            {% if book.book_cover %}
+                                <img src="{{ book.book_cover }}" alt="Book Cover" width="50" height="50">
+                            {% else %}
+                                No Cover Available
+                            {% endif %}
+                        </td>
+                        <td class="text-center">{{ book.book_name }}</td>
+                        <td class="text-center">{{ book.type_of_book }}</td>
+                        <td class="text-center">{{ book.publisher }}</td>
+                        <td class="text-center">{{ book.author }}</td>
+                        <td class="text-center">{{ book.isbn }}</td>
+                        <td class="text-center">
+                            <button class="text-muted btn btn-default icon-btn btn-edit" style="margin-right: 5px;" data-name="{{ book.name }}">
+                                <img src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png" title="Edit" />
+                            </button>
+                            <button class="text-muted btn btn-default icon-btn btn-delete" style="margin-right: 5px;" data-name="{{ book.name }}">
+                                <img src="https://img.icons8.com/material-outlined/24/000000/trash.png" title="Delete" />
+                            </button>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8" class="text-center">No books found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
+    </div>
+</body>
+</html>

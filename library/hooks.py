@@ -121,6 +121,7 @@ app_license = "mit"
 # 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
 # }
 #
+
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
@@ -145,16 +146,30 @@ app_license = "mit"
 # 	}
 # }
 
+# doc_events = {
+#     "Library Transaction": {
+#         "on_update": "library.penalty.check_and_create_penalty"
+#     }
+# }
+doc_events = {
+    "Library Transaction": {
+        "on_update": "library.library.doctype.library_penalty.library_penalty.check_and_create_penalty"
+    },
+    # "Sales Person": {
+    #     "on_update": "vrs.sales_person.create_sale_person_of_compare_rate_into_dashboard"
+    # }
+}
+
 # Scheduled Tasks
 # ---------------
 
 # scheduler_events = {
-# 	"all": [
-# 		"library.tasks.all"
-# 	],
-# 	"daily": [
-# 		"library.tasks.daily"
-# 	],
+	# "all": [
+	# 	"library.tasks.all"
+	# ],
+	# "daily": [
+	# 	"library.library.email.library_email"
+	# ],
 # 	"hourly": [
 # 		"library.tasks.hourly"
 # 	],
@@ -165,6 +180,16 @@ app_license = "mit"
 # 		"library.tasks.monthly"
 # 	],
 # }
+
+scheduler_events = {
+    "daily": [
+        "library.email.library_email",
+    ],
+}
+
+
+
+
 
 # Testing
 # -------

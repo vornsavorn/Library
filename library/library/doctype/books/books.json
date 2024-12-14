@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "BOOK-.#####",
+ "creation": "2024-10-14 10:08:34.630548",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "book_name",
+  "type_of_book",
+  "publisher",
+  "column_break_eipc",
+  "book_cover",
+  "author",
+  "isbn",
+  "section_break_ifga",
+  "description",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "book_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Book Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type_of_book",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type Of Book",
+   "options": "Fiction\nNon-Fiction\nReference\nGhost\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "publisher",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Publisher",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_eipc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "isbn",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "ISBN",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "section_break_ifga",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Books",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "author",
+   "fieldtype": "Link",
+   "label": "Author",
+   "options": "Author"
+  },
+  {
+   "fieldname": "book_cover",
+   "fieldtype": "Attach Image",
+   "label": "Book Cover",
+   "reqd": 1
+  }
+ ],
+ "image_field": "book_cover",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-25 21:34:16.214021",
+ "modified_by": "Administrator",
+ "module": "Library",
+ "name": "Books",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "book_name",
+ "track_changes": 1
+}

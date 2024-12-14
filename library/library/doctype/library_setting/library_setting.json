@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "{loan_period_days}",
+ "creation": "2024-10-14 11:12:10.858426",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "loan_period_days",
+  "quantitymaximun_number_of_books",
+  "amountbook",
+  "penalty_per_day"
+ ],
+ "fields": [
+  {
+   "fieldname": "loan_period_days",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Loan Period (Days)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "penalty_per_day",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Penalty Per Day",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amountbook",
+   "fieldtype": "Currency",
+   "label": "Amount/Book",
+   "reqd": 1
+  },
+  {
+   "fieldname": "quantitymaximun_number_of_books",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Quantity(Maximun Number of Books)",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-16 08:55:44.480747",
+ "modified_by": "Administrator",
+ "module": "Library",
+ "name": "Library Setting",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Transaction Receipt</title>
+    <style>
+        /* Base Styling */
+        body {
+            font-family: Khmer OS Battambang, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .receipt-container {
+            width: 100mm;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #fdfdfd;
+        }
+        .header {
+            text-align: center;
+            color: #1d1473;
+        }
+        .header h3 {
+            margin: 0;
+        }
+        .header h1 {
+            font-family: Khmer OS Muol Light;
+            font-size: 1.5em;
+            padding: 5px;
+        }
+        .header h3 {
+            font-family: Khmer OS Muol Light;
+            font-size: 1.2em;
+            padding: 2px;
+            margin-top: 30px;
+            color: #1d1473;
+        }
+        .section {
+            margin: 10px 0;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+        .table td, .table th {
+            padding: 5px;
+            border-bottom: 1px dashed #ddd;
+        }
+        .table .text-right {
+            text-align: right;
+        }
+        .summary-section {
+            margin-top: 15px;
+            padding-top: 5px;
+            border-top: 1px dashed #ddd;
+        }
+        .summary-section td {
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 15px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="receipt-container">
+        <!-- Header Section -->
+        <div class="header">
+            <h3>វិក្កយបត្រ</h3>
+            <p>Library Transaction Receipt </p>
+            <hr />
+        </div>
+
+        <!-- Member and Invoice Details Section -->
+        <div class="section">
+            <table style="width: 100%; font-size: 0.85em;">
+                <tr>
+                    <td style=><strong>Member:</strong></td>
+                    <td>{{ doc.library_member }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Transaction ID:</strong></td>
+                    <td>{{ doc.name }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Issue Date:</strong></td>
+                    <td>{{ frappe.utils.formatdate(doc.creation) }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Book Details and Penalty Information -->
+        <table class="table">
+            <tr>
+                <td><strong>Book Title:</strong></td>
+                <td class="text-right">{{ doc.books }}</td>
+            </tr>
+            <tr>
+                <td><strong>Due Date:</strong></td>
+                <td class="text-right">{{ frappe.utils.formatdate(doc.due_date) }}</td>
+            </tr>
+            <tr>
+                <td><strong>Return Date: </strong></td>                
+                <td class="text-right">Please return the book by <strong>{{ frappe.utils.formatdate(doc.due_date) }}</strong> . 
+                    If returned late, a penalty will be applied.</td>
+            </tr>
+            <tr>
+                <td><strong>Penalty Amount per Day:</strong></td>
+                <td class="text-right">$2.00</td>
+            </tr>
+        </table>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <p>Thank you for borrowing from our library!</p>
+            <p><small>Powered by Savorn</small></p>
+        </div>        
+    </div>
+</body>
+</html>
